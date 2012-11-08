@@ -10,7 +10,6 @@
 
 	<properties>
 		<java.version>1.6</java.version>
-		<junit.version>4.10</junit.version>
 		<roo.version>1.2.0.M1</roo.version>
         <aspectj.version>1.6.12.M2</aspectj.version>
         <slf4j.version>1.6.1</slf4j.version>
@@ -24,7 +23,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
+            <version>4.10</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -122,12 +121,12 @@
 		<dependency>
     		<groupId>org.codehaus.jackson</groupId>
     		<artifactId>jackson-core-asl</artifactId>
-    		<version>1.6.4</version>
+    		<version>1.9.10</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.6.4</version>
+			<version>1.9.10</version>
 		</dependency>
         
 	    <dependency>
@@ -255,7 +254,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-    <dependency>
+	    <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${org.springframework.version}</version>
@@ -336,7 +335,7 @@
             <artifactId>commons-codec</artifactId>
             <version>1.4</version>
         </dependency>
-    <dependency>
+		<dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-core</artifactId>
             <version>2.2.1</version>
@@ -352,6 +351,40 @@
             <artifactId>tiles-jsp</artifactId>
             <version>2.2.1</version>
         </dependency>
+		<dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+		<dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
 	</dependencies>
 
 	<repositories>
