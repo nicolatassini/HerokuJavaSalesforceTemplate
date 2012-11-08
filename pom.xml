@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tquila_nik</groupId>
-	<artifactId>HerokuSpringMVCSFDC</artifactId>
+	<artifactId>HerokuJavaSalesforce</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>HerokuSpringMVCSFDC</name>
+	<name>HerokuJavaSalesforce</name>
 
 	<properties>
-		<jetty.version>6.1.4</jetty.version>
 		<java.version>1.5</java.version>
 		<junit.version>4.8.2</junit.version>
 		<roo.version>1.2.0.M1</roo.version>
@@ -19,19 +19,7 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-		    <groupId>org.mortbay.jetty</groupId>
-		    <artifactId>jsp-2.1-glassfish</artifactId>
-		    <version>2.1.v20100127</version>
-		</dependency>
-		
-        <dependency>
-		    <groupId>org.eclipse.jetty</groupId>
-		    <artifactId>jetty-webapp</artifactId>
-		    <version>7.4.5.v20110725</version>
-		</dependency>
-
-        <!-- General dependencies for standard applications -->
+		<!-- General dependencies for standard applications -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -382,7 +370,7 @@
 			</snapshots>
 		</repository>
 		
-<repository>
+	<repository>
             <id>spring-maven-release</id>
             <name>Spring Maven Release Repository</name>
             <url>http://maven.springframework.org/release</url>
@@ -434,7 +422,7 @@
     <build>
         <plugins>
 
-<plugin>
+			<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
                 <version>1.1.1</version>
@@ -646,26 +634,26 @@
             </plugin>
             
             <plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-dependency-plugin</artifactId>
-			    <version>2.3</version>
-			    <executions>
-			        <execution>
-			            <phase>package</phase>
-			            <goals><goal>copy</goal></goals>
-			            <configuration>
-			                <artifactItems>
-			                    <artifactItem>
-			                        <groupId>org.mortbay.jetty</groupId>
-			                        <artifactId>jetty-runner</artifactId>
-			                        <version>7.4.5.v20110725</version>
-			                        <destFileName>jetty-runner.jar</destFileName>
-			                    </artifactItem>
-			                </artifactItems>
-			            </configuration>
-			        </execution>
-			    </executions>
-			</plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-dependency-plugin</artifactId>
+	            <version>2.3</version>
+	            <executions>
+	                <execution>
+	                    <phase>package</phase>
+	                    <goals><goal>copy</goal></goals>
+	                    <configuration>
+	                        <artifactItems>
+	                            <artifactItem>
+	                                <groupId>com.github.jsimone</groupId>
+	                                <artifactId>webapp-runner</artifactId>
+	                                <version>7.0.30.1</version>
+	                                <destFileName>webapp-runner.jar</destFileName>
+	                            </artifactItem>
+	                        </artifactItems>
+	                    </configuration>
+	                </execution>
+	            </executions>
+	        </plugin>
         </plugins>
     </build>
 </project>
