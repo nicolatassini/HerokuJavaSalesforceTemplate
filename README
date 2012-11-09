@@ -3,17 +3,13 @@ Working Heroku Java/J2EE Salesforce App
 =======================================
 
 Basic integration between several frameworks, including:
-Spring MVC 3.0.6
+Spring MVC 3.1.2.RELEASE
 Hibernate ORM 4.2
 Salesforce Java SDK 
-Maven 3
-Jetty 7.4.5
-Heroku Cedar
-
-Clone this project and build your own enterprise app fully integrated with Salesforce.
-
-
-Live at: http://sharp-sword-8728.herokuapp.com/
+Tomcat 7
 
 For comments and requests: https://twitter.com/#!/tquila_nik
 
+
+Env vars:
+heroku config:add FORCE_PERSISTENCEUNIT_URL="force://[login|test].salesforce.com?user=<USERNAME>&password=<PASSWORD><SECURITYTOKEN>"
