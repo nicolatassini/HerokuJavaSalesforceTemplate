@@ -15,9 +15,17 @@
         <slf4j.version>1.6.1</slf4j.version>
         <org.springframework.version>3.1.2.RELEASE</org.springframework.version>
         <jsimone.version>7.0.30.1</jsimone.version>
-        <forcedotcom.jpa>22.0.7-BETA</forcedotcom.jpa>
+        <forcedotcom.jpa>22.0.9-BETA</forcedotcom.jpa>
         <datanucleus.version>3.0.1</datanucleus.version>
     	<maven-datanucleus-plugin>3.0.0-release</maven-datanucleus-plugin>
+    	
+    	<!-- Makalu POC -->
+    	<datanucleus-core.version>2.2.3</datanucleus-core.version>
+        <datanucleus-maven.version>2.1.0-release</datanucleus-maven.version>
+        <datanucleus-jpa.version>2.1.7</datanucleus-jpa.version>
+        <datanucleus-rdbms.version>2.1.0-release</datanucleus-rdbms.version>
+        <datanucleus-enhancer.version>2.1.0-release</datanucleus-enhancer.version>
+    	
 
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -132,70 +140,69 @@
 			<version>1.9.10</version>
 		</dependency>
         
+	    
 	    <dependency>
             <groupId>com.force.sdk</groupId>
             <artifactId>force-jpa</artifactId>
             <version>${forcedotcom.jpa}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jpa_2.0_spec</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <dependency>
-	        <groupId>org.datanucleus</groupId>
-	        <artifactId>datanucleus-core</artifactId>
-	        <version>${datanucleus.version}</version>
-	        <scope>runtime</scope>
-	        <exclusions>
-	            <exclusion>
-	                <groupId>javax.transaction</groupId>
-	                <artifactId>transaction-api</artifactId>
-	            </exclusion>
-	        </exclusions>
-	    </dependency>
-	    <dependency>
-	        <groupId>javax.jdo</groupId>
-	        <artifactId>jdo2-api</artifactId>
-	        <version>2.3-ec</version>
-	        <exclusions>
-	            <exclusion>
-	                <groupId>javax.transaction</groupId>
-	                <artifactId>transaction-api</artifactId>
-	            </exclusion>
-	        </exclusions>
-	    </dependency>
-	    <dependency>
-	        <groupId>javax.transaction</groupId>
-	        <artifactId>jta</artifactId>
-	        <version>1.1</version>
-	    </dependency>
-        <!--dependency>
             <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-jpa</artifactId>
-            <version>2.1.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-rdbms</artifactId>
-            <version>3.1.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-enhancer</artifactId>
-            <version>3.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.jdo</groupId>
-            <artifactId>jdo-api</artifactId>
-            <version>3.0</version>
+            <artifactId>datanucleus-core</artifactId>
+            <version>${datanucleus-core.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>javax.transaction</groupId>
                     <artifactId>transaction-api</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency-->
+        </dependency>
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-jpa</artifactId>
+            <version>${datanucleus-jpa.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-rdbms</artifactId>
+            <version>${datanucleus-rdbms.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-enhancer</artifactId>
+            <version>${datanucleus-enhancer.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.jdo</groupId>
+            <artifactId>jdo-api</artifactId>
+            <version>3.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.transaction</groupId>
+                    <artifactId>transaction-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2.2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>jta</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+	    
+	    
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -673,90 +680,58 @@
                     </webAppConfig>
                 </configuration>
             </plugin>
+        	
         	<plugin>
-                <groupId>org.datanucleus</groupId>
-                <artifactId>maven-datanucleus-plugin</artifactId>
-                <version>${maven-datanucleus-plugin}</version>
-                <configuration>
-                        <fork>false</fork>
-                        <log4jConfiguration>${basedir}/src/main/resources/log4j.properties</log4jConfiguration>
-                        <mappingIncludes>**/*.class</mappingIncludes>
-                        <verbose>true</verbose>
-                        <enhancerName>ASM</enhancerName>
-                        <api>JPA</api>
-                    </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-core</artifactId>
-                        <version>${datanucleus.version}</version>
-                        <exclusions>
-                            <exclusion>
-                                <groupId>javax.transaction</groupId>
-                                <artifactId>transaction-api</artifactId>
-                            </exclusion>
-                        </exclusions>
-                    </dependency>
-					<dependency>
-						<groupId>asm</groupId>
-						<artifactId>asm</artifactId>
-						<version>3.3.1</version>
-					</dependency>
-					
-					<!--dependency>
-			            <groupId>org.datanucleus</groupId>
-			            <artifactId>datanucleus-jpa</artifactId>
-			            <version>2.1.8</version>
-			        </dependency>
-			        <dependency>
-			            <groupId>org.datanucleus</groupId>
-			            <artifactId>datanucleus-rdbms</artifactId>
-			            <version>3.1.3</version>
-			        </dependency>
-			        <dependency>
-			            <groupId>org.datanucleus</groupId>
-			            <artifactId>datanucleus-enhancer</artifactId>
-			            <version>3.1.1</version>
-			        </dependency>
-			        <dependency>
-			            <groupId>javax.jdo</groupId>
-			            <artifactId>jdo-api</artifactId>
-			            <version>3.0</version>
-			            <exclusions>
-			                <exclusion>
-			                    <groupId>javax.transaction</groupId>
-			                    <artifactId>transaction-api</artifactId>
-			                </exclusion>
-			            </exclusions>
-			        </dependency-->
-
-                    <!--dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-jpa</artifactId>
-                        <version>2.1.7</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-rdbms</artifactId>
-                        <version>2.1.0-release</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-enhancer</artifactId>
-                        <version>2.1.0-release</version>
-                    </dependency-->
-                    
-                </dependencies>
-            </plugin>
-            
+                <groupId>org.datanucleus</groupId>
+                <artifactId>maven-datanucleus-plugin</artifactId>
+                <version>${datanucleus-maven.version}</version>
+                <configuration>
+                    <fork>false</fork>
+                    <log4jConfiguration>${basedir}/src/main/resources/log4j.properties</log4jConfiguration>
+                    <mappingIncludes>**/*.class</mappingIncludes>
+                    <verbose>false</verbose>
+                    <enhancerName>ASM</enhancerName>
+                    <api>JPA</api>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-core</artifactId>
+                        <version>${datanucleus-core.version}</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>javax.transaction</groupId>
+                                <artifactId>transaction-api</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-jpa</artifactId>
+                        <version>${datanucleus-jpa.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-rdbms</artifactId>
+                        <version>${datanucleus-rdbms.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-enhancer</artifactId>
+                        <version>${datanucleus-enhancer.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        	
+        	            
             
             
             <!--plugin>
