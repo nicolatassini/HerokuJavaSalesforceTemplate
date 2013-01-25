@@ -385,13 +385,36 @@
 	</dependencies>
 
 	<repositories>
-		<!-- JBoss Repository used for Java EE 6 pieces -->
+	    <repository>
+            <id>DataNucleus_2</id>
+            <url>http://www.datanucleus.org/downloads/maven2/</url>
+            <name>DataNucleus</name>
+        </repository>
+        <repository>
+			<id>spy</id>
+			<name>Spy Repository</name>
+			<layout>default</layout>
+			<url>http://files.couchbase.com/maven2/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>					
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+    	<pluginRepository>
+            <id>DataNucleus_2</id>
+            <url>http://www.datanucleus.org/downloads/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+	<!--repositories>
 		<repository>
 			<id>repository.jboss.org</id>
 			<name>JBoss Repository</name>
 			<url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
 		</repository>
-
 		<repository>
 			<id>org.springframework.maven.milestone</id>
 			<name>Spring Maven Milestone Repository</name>
@@ -400,8 +423,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		
-	<repository>
+		<repository>
             <id>spring-maven-release</id>
             <name>Spring Maven Release Repository</name>
             <url>http://maven.springframework.org/release</url>
@@ -416,7 +438,7 @@
             <name>Spring Roo Repository</name>
             <url>http://spring-roo-repository.springsource.org/release</url>
         </repository>
-    <repository>
+    	<repository>
             <id>DataNucleus_2</id>
             <url>http://www.datanucleus.org/downloads/maven2/</url>
             <name>DataNucleus</name>
@@ -427,7 +449,8 @@
             <name>JBoss Repo</name>
         </repository>
 	</repositories>
-<pluginRepositories>
+	
+	<pluginRepositories>
         <pluginRepository>
             <id>spring-maven-release</id>
             <name>Spring Maven Release Repository</name>
@@ -443,11 +466,11 @@
             <name>Spring Roo Repository</name>
             <url>http://spring-roo-repository.springsource.org/release</url>
         </pluginRepository>
-    <pluginRepository>
+    	<pluginRepository>
             <id>DataNucleus_2</id>
             <url>http://www.datanucleus.org/downloads/maven2/</url>
         </pluginRepository>
-    </pluginRepositories>
+    </pluginRepositories-->
     
     
     <build>
