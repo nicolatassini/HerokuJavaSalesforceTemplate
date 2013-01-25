@@ -693,11 +693,11 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--dependencies>
+                <dependencies>
                     <dependency>
                         <groupId>org.datanucleus</groupId>
                         <artifactId>datanucleus-core</artifactId>
-                        <version>2.2.3</version>
+                        <version>${datanucleus.version}</version>
                         <exclusions>
                             <exclusion>
                                 <groupId>javax.transaction</groupId>
@@ -705,7 +705,7 @@
                             </exclusion>
                         </exclusions>
                     </dependency>
-                    <dependency>
+                    <!--dependency>
                         <groupId>org.datanucleus</groupId>
                         <artifactId>datanucleus-jpa</artifactId>
                         <version>2.1.7</version>
@@ -719,8 +719,8 @@
                         <groupId>org.datanucleus</groupId>
                         <artifactId>datanucleus-enhancer</artifactId>
                         <version>2.1.0-release</version>
-                    </dependency>
-                </dependencies-->
+                    </dependency-->
+                </dependencies>
             </plugin>
             
             <plugin>
