@@ -736,7 +736,7 @@
 			                    <artifactId>transaction-api</artifactId>
 			                </exclusion>
 			            </exclusions>
-			        </dependency>
+			        </dependency-->
 
                     <!--dependency>
                         <groupId>org.datanucleus</groupId>
