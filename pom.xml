@@ -715,7 +715,7 @@
 			            <groupId>org.datanucleus</groupId>
 			            <artifactId>datanucleus-jpa</artifactId>
 			            <version>2.1.8</version>
-			        </dependency-->
+			        </dependency>
 			        <dependency>
 			            <groupId>org.datanucleus</groupId>
 			            <artifactId>datanucleus-rdbms</artifactId>
@@ -736,7 +736,7 @@
 			                    <artifactId>transaction-api</artifactId>
 			                </exclusion>
 			            </exclusions>
-			        </dependency>
+			        </dependency-->
 
                     <!--dependency>
                         <groupId>org.datanucleus</groupId>
