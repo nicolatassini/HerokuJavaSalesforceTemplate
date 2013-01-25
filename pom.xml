@@ -767,7 +767,7 @@
                 <artifactId>datanucleus-maven-plugin</artifactId>
                 <version>3.2.0-m2</version>
                 <configuration>
-                    <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration>
+                    <log4jConfiguration>${basedir}/src/main/resources/log4j.properties</log4jConfiguration>
                     <verbose>true</verbose>
                 </configuration>
                 <executions>
