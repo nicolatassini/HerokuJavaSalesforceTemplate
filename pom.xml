@@ -673,7 +673,7 @@
                     </webAppConfig>
                 </configuration>
             </plugin>
-        	<!--plugin>
+        	<plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
                 <version>${maven-datanucleus-plugin}</version>
@@ -709,9 +709,7 @@
 						<groupId>asm</groupId>
 						<artifactId>asm</artifactId>
 						<version>3.3.1</version>
-					</dependency-->
-					
-					
+					</dependency>
 					
 					<!--dependency>
 			            <groupId>org.datanucleus</groupId>
@@ -738,7 +736,7 @@
 			                    <artifactId>transaction-api</artifactId>
 			                </exclusion>
 			            </exclusions>
-			        </dependency-->
+			        </dependency>
 
                     <!--dependency>
                         <groupId>org.datanucleus</groupId>
@@ -756,13 +754,12 @@
                         <version>2.1.0-release</version>
                     </dependency-->
                     
-                    
-                <!--/dependencies>
-            </plugin-->
+                </dependencies>
+            </plugin>
             
             
             
-            <plugin>
+            <!--plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>datanucleus-maven-plugin</artifactId>
                 <version>3.2.0-m2</version>
@@ -778,7 +775,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin-->
             
             <plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
